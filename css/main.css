@@ -6,6 +6,9 @@ body {
 	margin: 0;
 	min-width: 320px;
 }
+#burger{
+	cursor: pointer;
+}
 h1 {
 	font-family: 'Rancho', sans-serif;
 	font-size: 95px;
@@ -41,16 +44,7 @@ a {
 	margin-right: auto;
 	margin-left: auto;
 }
-.button {
-	background-color: #007073;
-	color: #fff;
-	padding: .8em 1em;
-	border-radius: 4px;
-	text-transform: uppercase;
-	text-decoration: none;
-	display: inline-block;
-	line-height: 1;
-}
+
 .call-to-action {
 	text-align: center;
 	margin-bottom: 60px;
@@ -59,6 +53,7 @@ header {
 	padding: 20px;
 	display: flex;
 	align-items: center;
+	justify-content: space-between;
 }
 .logo {
 	width: 125px;
@@ -68,16 +63,30 @@ nav {
 	margin-left: auto;
 	font-size: 15px;
 	text-transform: uppercase;
+	display: none;
+	margin-top: 0;
 }
 nav ul {
 	list-style-type: none;
 	margin: 0;
 	padding: 0;
-	display: flex;
+	display: block;
+	justify-content: center;
 	align-items: center;
 }
 nav li {
-	margin-left: 10px;
+	margin: 10px 10px;
+
+}
+nav a:hover {
+	color: yellow;
+}
+#nav-cb:checked ~ nav {
+	display: block;
+	position: absolute;
+	top: 70px;
+	height: auto;
+	overflow-y: auto;
 }
 .hero {
 	text-align: center;
@@ -102,11 +111,35 @@ main {
 	text-align: center;
 }
 
-@media (min-width: 420px) {
-	header {
-		padding: 30px 40px 25px;
+/* Show nav on wider screens */
+@media (min-width: 600px) {
+	#burger {
+		display: none;
 	}
-	.logo {
-		width: 160px;
+	nav {
+		display: block;
+		position: static;
+		top: 0;
+		height: auto;
+	}
+	nav ul{
+		display: flex;
+		flex-direction: row;
+		width: auto;
+	}
+	#nav-cb:checked ~ nav {
+		display: block;
+		position: static;
+		top: 70px;
+	}
+	.button {
+		background-color: #007073;
+		color: #fff;
+		padding: .8em 1em;
+		border-radius: 4px;
+		text-transform: uppercase;
+		text-decoration: none;
+		display: inline-block;
+		line-height: 1;
 	}
 }

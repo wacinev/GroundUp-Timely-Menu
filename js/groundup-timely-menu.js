@@ -24,7 +24,7 @@ let currentMenuDiv = document.getElementById('current-menu');currentMenuDiv.inne
 
 // function runs when Dark mode checkbox is checked or unchecked
 // get the check box
-let checkbox = document.querySelector('input');
+let checkbox = document.querySelector('#cb');
 
 checkbox.addEventListener('change', toggleDarkMode);
 
@@ -92,3 +92,53 @@ console.log(r);
 console.log(foodQuotes[r]); //random quote
 let quoteH4 = document.querySelector('div h4');
 quoteH4.textContent = foodQuotes[r];
+
+
+let luckyNumP = document.querySelector('.hero p');
+luckyNumP.textContent = "Today's Lucky Numbers: ";
+
+// for(let i=0; i<5; i++){
+//     let luckyNum = Math.ceil(Math.random() * 69);
+//     luckyNumP.textContent += luckyNum + " ";
+// }
+
+
+let fruits = ['apple', 'banana', 'blueberry', 'cherry', 'grape', 'grapefruit', 'kiwi', 'lemon', 'lime', 'mango'];
+let randomFruit = "";
+while(randomFruit != 'kiwi'){
+    let r = Math.floor(Math.random() * fruits.length);
+    randomFruit = fruits[r];
+    console.log('randomFruit:',randomFruit);
+}
+
+
+let luckyNumsArr = [];
+while(luckyNumsArr.length <5) {
+    let luckyNum = Math.ceil(Math.random() *69);
+    if(!luckyNumsArr.includes(luckyNum)){
+        luckyNumsArr.push(luckyNum);
+    }
+    console.log(luckyNumsArr);
+}
+        
+luckyNumsArr.sort();
+luckyNumsArr.sort(function(a,b) {
+    return a - b;
+});
+console.log('sorted:', luckyNumsArr);
+
+let powerball = Math.ceil(Math.random() * 26);
+
+console.log('includes powerball:', powerball);
+
+let luckyNumStr = luckyNumsArr.join(", ");
+// console.log('This is luckynums str', luckyNumStr);
+// luckyNumP.textContent += luckyNumStr;
+// console.log('this is luckynump', luckyNumP);
+let powerballSpan = '<span style="color:pink;">' + powerball + '</span>'
+
+luckyNumP.innerHTML += luckyNumStr + '  ' + powerballSpan;
+
+
+// luckyNumsArr.sort();
+// luckyNumsArr.sort(function)
